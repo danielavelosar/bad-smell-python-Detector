@@ -1,3 +1,5 @@
+package main.LongMethodBadSmell;
+
 public class LongMethodBlock extends Python3ParserBaseVisitor {
     private int numberOfStatements;
     public int getNumberOfStatements() {

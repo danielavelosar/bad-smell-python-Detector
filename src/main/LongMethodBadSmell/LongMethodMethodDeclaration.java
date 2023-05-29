@@ -1,3 +1,4 @@
+package main.LongMethodBadSmell;
 
 public class LongMethodMethodDeclaration extends Python3ParserBaseVisitor {
     private int numberOfStatements;
