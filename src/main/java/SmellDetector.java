@@ -79,7 +79,7 @@ public class SmellDetector extends Python3ParserBaseListener{
         System.out.println("acabo de entrar a la funcion "+ ctx.getChild(1).getText());
         Python3Parser.BlockContext newCtx = ctx.block();
         int numLines = newCtx.stmt().size();
-        //System.out.println(numLines);
+        // System.out.println(numLines);
         if(numLines>10){
             System.out.println("La funcion es muy larga pls recortala jejeje ");
         }
