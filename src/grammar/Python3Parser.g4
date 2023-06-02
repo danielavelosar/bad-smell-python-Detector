@@ -128,8 +128,8 @@ or_pattern: closed_pattern ('|' closed_pattern)* ;
 closed_pattern: literal_pattern | capture_pattern | wildcard_pattern | value_pattern | group_pattern | sequence_pattern | mapping_pattern | class_pattern ;
 literal_pattern: signed_number { this.CannotBePlusMinus() }? | complex_number | strings | 'None' | 'True' | 'False' ;
 literal_expr: signed_number { this.CannotBePlusMinus() }? | complex_number | strings | 'None' | 'True' | 'False' ;
-complex_number: signed_real_number '+' imaginary_number 
-    | signed_real_number '-' imaginary_number  
+complex_number: signed_real_number '+' imaginary_number
+    | signed_real_number '-' imaginary_number
     ;
 signed_number: NUMBER | '-' NUMBER ;
 signed_real_number: real_number | '-' real_number ;
@@ -143,28 +143,28 @@ attr: name ('.' name)+ ;
 name_or_attr: attr | name ;
 group_pattern: '(' pattern ')' ;
 sequence_pattern:
-    '[' maybe_sequence_pattern? ']' 
-    | '(' open_sequence_pattern? ')' 
+    '[' maybe_sequence_pattern? ']'
+    | '(' open_sequence_pattern? ')'
     ;
 open_sequence_pattern: maybe_star_pattern ',' maybe_sequence_pattern? ;
 maybe_sequence_pattern: maybe_star_pattern (',' maybe_star_pattern)* ','? ;
 maybe_star_pattern: star_pattern | pattern ;
 star_pattern:
-    '*' pattern_capture_target 
-    | '*' wildcard_pattern 
+    '*' pattern_capture_target
+    | '*' wildcard_pattern
     ;
-mapping_pattern: '{' '}' 
-    | '{' double_star_pattern ','? '}' 
-    | '{' items_pattern ',' double_star_pattern ','? '}' 
-    | '{' items_pattern ','? '}' 
+mapping_pattern: '{' '}'
+    | '{' double_star_pattern ','? '}'
+    | '{' items_pattern ',' double_star_pattern ','? '}'
+    | '{' items_pattern ','? '}'
     ;
 items_pattern: key_value_pattern (',' key_value_pattern)* ;
 key_value_pattern: (literal_expr | attr) ':' pattern ;
 double_star_pattern: '**' pattern_capture_target ;
-class_pattern: name_or_attr '(' ')' 
-    | name_or_attr '(' positional_patterns ','? ')' 
-    | name_or_attr '(' keyword_patterns ','? ')' 
-    | name_or_attr '(' positional_patterns ',' keyword_patterns ','? ')' 
+class_pattern: name_or_attr '(' ')'
+    | name_or_attr '(' positional_patterns ','? ')'
+    | name_or_attr '(' keyword_patterns ','? ')'
+    | name_or_attr '(' positional_patterns ',' keyword_patterns ','? ')'
     ;
 positional_patterns: pattern (',' pattern)* ;
 keyword_patterns: keyword_pattern (',' keyword_pattern)* ;
@@ -196,6 +196,90 @@ atom: '(' (yield_expr|testlist_comp)? ')'
    | '{' dictorsetmaker? '}'
    | name | NUMBER | STRING+ | '...' | 'None' | 'True' | 'False' ;
 name : NAME | '_' | 'match' ;
+
+AT : '@' ;
+LPAREN : '(' ;
+RPAREN : ')' ;
+DEF : 'def' ;
+T__23 : '->' ;
+COLON : ':' ;
+EQUAL : '=' ;
+COMMA : ',' ;
+MUL : '*' ;
+T__45 : '**' ;
+SEMI : ';' ;
+ADD_ASSIGN : '+=' ;
+SUB_ASSIGN : '-=' ;
+MUL_ASSIGN : '*=' ;
+T__32 : '@=' ;
+DIV_ASSIGN : '/=' ;
+MOD_ASSIGN : '%=' ;
+AND_ASSIGN : '&=' ;
+OR_ASSIGN : '|=' ;
+XOR_ASSIGN : '^=' ;
+LSHIFT_ASSIGN : '<<=' ;
+RSHIFT_ASSIGN : '>>=' ;
+T__33 : '**=' ;
+T__34 : '//=' ;
+DEL : 'del' ;
+PASS : 'pass' ;
+BREAK : 'break' ;
+CONTINUE : 'continue' ;
+RETURN : 'return' ;
+RAISE : 'raise' ;
+FROM : 'from' ;
+IMPORT : 'import' ;
+DOT : '.' ;
+ELLIPSIS : '...' ;
+AS : 'as' ;
+GLOBAL : 'global' ;
+NONLOCAL : 'nonlocal' ;
+ASSERT : 'assert' ;
+IF : 'if' ;
+ELIF : 'elif' ;
+ELSE : 'else' ;
+WHILE : 'while' ;
+FOR : 'for' ;
+IN : 'in' ;
+TRY : 'try' ;
+FINALLY : 'finally' ;
+WITH : 'with' ;
+EXCEPT : 'except' ;
+MATCH : 'match' ;
+CASE : 'case' ;
+BITOR : '|' ;
+NONE : 'None' ;
+TRUE : 'True' ;
+FALSE : 'False' ;
+ADD : '+' ;
+SUB : '-' ;
+T__42 : '_' ;
+LBRACK : '[' ;
+RBRACK : ']' ;
+LBRACE : '{' ;
+RBRACE : '}' ;
+LAMBDA : 'lambda' ;
+OR : 'or' ;
+AND : 'and' ;
+NOT : 'not' ;
+LT : '<' ;
+GT : '>' ;
+EQUAL_EQUAL : '==' ;
+GE : '>=' ;
+LE : '<=' ;
+T__37 : '<>' ;
+NOT_EQUAL : '!=' ;
+IS : 'is' ;
+CARET : '^' ;
+BITAND : '&' ;
+T__38 : '<<' ;
+T__39 : '>>' ;
+DIV : '/' ;
+MOD : '%' ;
+T__40 : '//' ;
+TILDE : '~' ;
+CLASS : 'class' ;
+YIELD : 'yield' ;
 testlist_comp: (test|star_expr) ( comp_for | (',' (test|star_expr))* ','? );
 trailer: '(' arglist? ')' | '[' subscriptlist ']' | '.' name ;
 subscriptlist: subscript_ (',' subscript_)* ','?;
